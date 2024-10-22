@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+        <script src = "style.css"></script>
+	    <style>
+	        #container{
+	            display:flex;
+	            flex-direction:column;
+	            align-items:center;
+	        }
+	    </style>
+	    
+	</head>
+
+	<body>
+	<div id = container>
+	    <button  id = "change-background" onclick = "changeColor()">Change Background Color</button>
+	</div>
+		
+		<script>
+		    function changeColor(){
+                let color = prompt("Choose a color: ");
+                localStorage.setItem('Bcolor', color);
+                document.body.style.background = localStorage.getItem('bcolor');
+            }
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>        
+	    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+		<style>
+		    button
+            {
+                border-radius: 25px;
+                background-color: lightgray;
+                color: white;
+                font-weight: bold;
+                font-size: 16px;
+                cursor:pointer;
+                padding: 15px;
+                transition: background-color 2s ease-out;
+            }
+		    button:hover{
+                background-color: lightblue;
+            }
+            button:focus
+            {
+                outline: none;
+            }
+            #container1
+            {
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+            }
+		</style>
+	</head>
+
+	<body>
+	    <div id = container1>
+            <button id = record-count>Record a click!</button>
+            <p id = counter></p>
+        </div>
+        <script>
+            $("#record-count").click(function(){
+                //If counter exists, add one to the total
+                if(localStorage.counter)
+                {
+                    localStorage.counter = parseInt(localStorage.counter) + 1;
+                    
+                }
+                //otherwise, create key counter and set it to one
+                else
+                {
+                    localStorage.counter = 1;
+                }
+                $("#counter").text("Total number of clicks: " +localStorage.counter);
+            });
+            
+            //This checks if localStorage.counter exists. If so, add the existing
+            //total. Else, set it to zero. It will only be zero the first time 
+            //the site is visited.
+            if(localStorage.counter)
+            {
+                $("#counter").text("Total number of clicks: " +localStorage.counter);
+            }
+            else
+            {
+                $("#counter").text("Total number of clicks: 0");
+            }
+        </script>
+	</body>
+</html>

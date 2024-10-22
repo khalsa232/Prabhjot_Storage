@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+	</head>
+
+	<body>
+	    <p id = welcome></p>
+	    <p>Refresh the page to see localStorage in action!</p>
+	    
+        <script>
+            //check to see if the key user exists
+            if(localStorage.getItem("user"))
+            {
+                //if true, welcome the user back to the site
+                $("#welcome").text("Welcome back, " + localStorage.user);
+            }
+            else
+            {
+                //otherwise, ask the user their name, store their name, and welcome them!
+                let name = prompt("What is your name?");
+                localStorage.setItem("user", name);
+                $("#welcome").text("Welcome to my site, " + name);
+            }
+        </script>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+		<style>
+		   #progress-bar
+		   {
+		       border:1px solid black;
+		       height: 30px;
+		       width:300px;
+		   }
+		   #progress
+		   {
+		       background-color:green;
+		       height:30px;
+		       width:10px;
+		       display:none;
+		   }
+		   #container
+		   {
+		       display:flex;
+		       flex-direction:column;
+		       align-items:center;
+		       
+		   }
+		  #progress-button
+		  {
+		      margin:10px;
+		  }
+		</style>
+	</head>
+
+	<body>
+	    <div id = container>
+	        <p>Not all browsers have local storage built in as a feature.</p>
+	        <p>Check your browsers support by clicking this button!</p>
+	        <button id = progress-button>Check Local Storage Compatability</button>
+	        <br>
+    	    <div id = progress-bar>
+    	        <div id = progress></div>
+    	    </div>
+            
+            <p id = "local-storage"></p>
+        </div>
+        <script>
+            //Write your code here!
+            $("#progress-button").click(function(){
+                $("#progress").show().animate({width:"300px"},2000,function(){
+                    checkLocal();
+                })
+            });
+            
+            //This function is checking to see if your browser supports localStorage
+            //The keyword Storage will have a value if it exists, if not, it will be undefined
+            function checkLocal()
+            {
+                if(typeof(Storage) !== "undefined")
+                {
+                    $("#local-storage").text("Your browser supports local storage!");
+                }
+                else
+                {
+                    $("#local-storage").text("Your browser does not support local storage! Try using a new browser for this unit :(");
+                }
+            }
+        </script>
+	</body>
+</html>
